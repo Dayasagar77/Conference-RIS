@@ -1,0 +1,17 @@
+# Python virtual environment - never upload this
+ris_dql_env/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Large binary/data files
+*.h5
+*.pkl
+*.npy
+*.npz
+
+# System files
+.DS_Store
+Thumbs.db
