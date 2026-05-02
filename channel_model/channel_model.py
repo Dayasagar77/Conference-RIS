@@ -101,7 +101,7 @@ class Config:
     FC        = 3.5e9
     C         = 3e8
     NOISE_PSD = -174
-    NOISE_W   = 10**((NOISE_PSD - 30 + 10*np.log10(20e6/12)) / 10)
+    NOISE_W   = 10**((NOISE_PSD + 7 - 30 + 10*np.log10(20e6/12)) / 10)  # NF = 7 dB
 
     A_URBAN   = 9.61
     B_URBAN   = 0.16
