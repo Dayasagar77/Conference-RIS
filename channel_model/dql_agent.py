@@ -461,7 +461,7 @@ def smooth(v, w=30):
 
 def plot_convergence(ep_rewards, ep_thrs, best_thrs, conv_ep, loss_hist):
     print("\n[3/5] Generating convergence plot...")
-    M1_BEST = 233.7
+    M1_BEST = 187.3
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
     eps_arr   = np.arange(1, len(ep_rewards)+1)
 
@@ -534,7 +534,7 @@ def plot_trajectory(best_pos, dql_thr):
 
     ax = axes[1]
     alts_m1 = [50,   75,    100,    125,    150,    175,    200]
-    thrs_m1  = [194.707,222.523,233.290,233.666,230.646,226.695,222.262]
+    thrs_m1  = [148.580,176.160,186.840,187.190,184.150,180.180,175.720]
     ax.plot(alts_m1, thrs_m1, color=C['primary'], lw=2, marker='o',
             ms=6, label='Fixed-altitude RIS-NOMA (Module 1)')
     ax.axhline(dql_thr, color=C['secondary'], ls='--', lw=2,
@@ -544,7 +544,7 @@ def plot_trajectory(best_pos, dql_thr):
     ax.set_ylabel('System Throughput (Mbps)')
     ax.set_title('DQL vs Fixed Altitude')
     ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
-    ax.set_ylim(160, 260)
+    ax.set_ylim(140, 210)
 
     plt.suptitle('Fig. 11: UAV Position and Altitude Analysis', fontsize=13)
     plt.tight_layout()
@@ -574,7 +574,7 @@ def plot_throughput_compare(alts, fixed_thrs, best_fixed, best_H, dql_thr, dql_g
     ax.set_ylabel('System Throughput (Mbps)')
     ax.set_title('Fig. 12: DQL vs Fixed Altitude — Fair Comparison (seed=99, n_mc=50)')
     ax.legend(fontsize=10); ax.grid(axis='y', alpha=0.4)
-    ax.set_ylim(160, max(max(fixed_thrs), dql_thr)*1.12)
+    ax.set_ylim(140, max(max(fixed_thrs), dql_thr)*1.12)
     plt.tight_layout()
     path = f"{OUT}/fig12_throughput_compare.png"
     plt.savefig(path, dpi=150, bbox_inches='tight'); plt.close()
