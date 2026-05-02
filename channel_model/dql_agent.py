@@ -48,7 +48,7 @@ class Config:
     RIS_POS   = np.array([300.0, 250.0, 20.0])
     B_PHASE   = 3
     FC        = 3.5e9;  C = 3e8
-    NOISE_W   = 10**((-174 - 30 + 10*np.log10(20e6/12)) / 10)
+    NOISE_W   = 10**((-174 + 7 - 30 + 10*np.log10(20e6/12)) / 10)  # NF = 7 dB
     A_URBAN   = 9.61;   B_URBAN = 0.16
     ETA_LOS   = 1.0;    ETA_NLOS = 20.0
     K_RICIAN  = 10**(10.0 / 10)
