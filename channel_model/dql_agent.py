@@ -382,7 +382,7 @@ def train_dql():
             if t > best_thr:
                 best_thr = t
                 best_pos = npos.copy()
-                if conv_ep is None and t > 230.0:
+                if conv_ep is None and t > 195.0:
                     conv_ep = ep
 
             state = ns;  pos = npos
