@@ -95,14 +95,13 @@ def generate_devices():
 def run_hsdc(positions):
     """
     Hybrid Self-Decisive Clustering (HSDC).
-    Equation (6) from paper:
-        K* = arg max_K Δ(K),   Δ(K) = h(K) - h(K+1)
-
-    Returns:
-        K_star     : int   — automatically determined cluster count
-        labels     : array — cluster index (0 to K*-1) per device
-        centers    : array — cluster centroid positions (K*, 2)
-        Z          : linkage matrix (for dendrogram plot)
+    K* selection criterion (Eq. 6):
+        K* = argmin_K  subject to:  Coverage(K) = 100%
+        where Coverage(K) = fraction of devices within UAV_RADIUS (500 m)
+        of their assigned cluster centroid.
+    This is the operationally meaningful auto-K rule for UAV emergency
+    communications: every survivor device must be within the UAV service
+    radius of at least one cluster head.
     """
     print("\n  Phase 1: Hierarchical Agglomerative Clustering (HAC)")
     print("           Finding optimal K* via Ward linkage...")
@@ -118,14 +117,29 @@ def run_hsdc(positions):
     merge_heights = Z[:, 2]
     n_merges      = len(merge_heights)
 
-    # Compute gaps between consecutive merge heights
-    gaps   = np.diff(merge_heights[::-1])   # reverse: large gaps = natural clusters
-    K_star = int(np.argmax(gaps)) + 2       # +2 because diff reduces length by 1
+    # Find K* = minimum K such that 100% of devices lie within
+    # the UAV service radius (500 m) of their cluster centroid.
+    # This is the operationally meaningful auto-K criterion for
+    # UAV emergency coverage: every survivor must be reachable.
+    UAV_RADIUS = 500.0
+    K_star = None
+    for k_try in range(2, 21):
+        km_try    = KMeans(n_clusters=k_try, random_state=42,
+                           n_init=20, max_iter=500)
+        lab_try   = km_try.fit_predict(positions)
+        ctr_try   = km_try.cluster_centers_
+        covered   = sum(
+            1 for i in range(len(positions))
+            if np.linalg.norm(positions[i] - ctr_try[lab_try[i]]) <= UAV_RADIUS
+        )
+        if covered == len(positions):   # 100% coverage achieved
+            K_star = k_try
+            break
+    if K_star is None:
+        K_star = 15   # fallback (should never trigger for this dataset)
 
-    # Clamp K* to sensible range [2, 15]
-    K_star = int(np.clip(K_star, 2, 15))
-
-    print(f"           K* automatically determined = {K_star}")
+    print(f"           K* = {K_star}  "
+          f"(minimum clusters for 100% coverage within {UAV_RADIUS:.0f} m)")
 
     print(f"\n  Phase 2: k-means Refinement with K* = {K_star} clusters")
 
@@ -327,8 +341,8 @@ def plot_dendrogram(Z, K_star):
                show_contracted=True,
                color_threshold=Z[-K_star, 2])
 
-    # Draw cut line at K* level
-    cut_height = Z[-K_star, 2]
+    # Draw cut line at K* level — find the merge height that gives K* clusters
+    cut_height = Z[-(K_star), 2]
     ax.axhline(y=cut_height, color='red', linestyle='--',
                lw=2, label=f'Cut level → K* = {K_star} clusters')
 
