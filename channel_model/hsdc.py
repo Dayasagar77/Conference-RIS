@@ -350,7 +350,7 @@ def plot_dendrogram(Z, K_star):
     ax.set_ylabel("Ward Linkage Distance",          fontsize=11)
     ax.set_title(
         f"HAC Dendrogram — Automatic K* = {K_star} determination\n"
-        f"Red dashed line shows optimal cut point (max inconsistency gap)",
+        f"Red dashed line shows optimal cut point (min-coverage criterion)",
         fontsize=11)
     ax.legend(fontsize=11)
     plt.tight_layout()
