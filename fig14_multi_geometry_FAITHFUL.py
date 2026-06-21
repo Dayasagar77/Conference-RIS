@@ -4,7 +4,7 @@ fig14_multi_geometry_FAITHFUL.py  —  DQL Generalisation, channel_model.py phys
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Evaluates the fixed DQL-optimal UAV position (437, 584, 108) m across 20 unseen
 device layout seeds, using channel_model.py's OWN channel functions so that the
-throughput scale is consistent with the paper's 188.36 Mbps headline (Table VIII).
+throughput scale is consistent with the paper's 188.36 Mbps headline (Table IV).
 
 Paper-baseline reproduced here: seed=42 → ~188 Mbps (same physics as Module 1).
 Test seeds 100-119: throughput stability of the fixed DQL position.
@@ -29,8 +29,8 @@ TRAIN_SEED = 42
 TEST_SEEDS = list(range(100, 120))
 
 # Paper baselines from the SAME pipeline (channel_model.py, seed=42, n_trials=100)
-OMA_REF  = 120.93   # Table VIII, H=125 m
-NOMA_REF = 187.18   # Table VIII, H=125 m
+OMA_REF  = 120.93   # Table IV, H=125 m
+NOMA_REF = 187.18   # Table IV, H=125 m
 DQL_REF  = 188.36   # Table VII
 
 
@@ -105,18 +105,16 @@ ax.axhline(mu, color='#1f77b4', lw=1.6, ls='--', zorder=4,
 ax.axhspan(mu-std, mu+std, color='#1f77b4', alpha=0.12, zorder=2,
            label=f'±1σ = {std:.1f} Mbps  (CV {cv:.0f}%)')
 ax.axhline(OMA_REF,  color='#d62728', lw=1.4, ls=':', zorder=4,
-           label=f'OMA baseline  = {OMA_REF} Mbps  (Table VIII)')
+           label=f'OMA baseline  = {OMA_REF} Mbps  (Table IV)')
 ax.axhline(NOMA_REF, color='#2ca02c', lw=1.4, ls=':', zorder=4,
-           label=f'NOMA H*=125m = {NOMA_REF} Mbps  (Table VIII)')
+           label=f'NOMA H*=125m = {NOMA_REF} Mbps  (Table IV)')
 
 xtl = [str(s) for s in TEST_SEEDS] + ['42\n(train)']
 ax.set_xticks(np.arange(len(TEST_SEEDS)+1))
 ax.set_xticklabels(xtl, fontsize=8.5)
 ax.set_xlabel('Device Layout Seed')
 ax.set_ylabel('Aggregate Throughput (Mbps)')
-ax.set_title(f'Fig 14 — DQL Position ({UAV[0]:.0f},{UAV[1]:.0f},{UAV[2]:.0f}) m: '
-             f'Throughput Stability Across 20 Unseen Device Layouts',
-             fontweight='bold')
+# Figure title intentionally omitted; the IEEE caption provides it.
 
 ax.text(0.01, 0.97,
         f'20-seed stats (channel_model.py)\nmean = {mu:.2f} Mbps\n'

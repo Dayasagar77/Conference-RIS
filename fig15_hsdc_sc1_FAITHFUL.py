@@ -153,9 +153,7 @@ ax2.text(0.98, 0.97,
          bbox=dict(boxstyle='round,pad=0.4', facecolor='#fffde7',
                    edgecolor='#aaa', alpha=0.9))
 
-fig.suptitle(f'Fig 15 — HSDC on 24 SC1 NOMA Devices (channel_model.py seed=42) | '
-             f'K*={k_star}, R_cover={R_COVER:.0f} m, linkage=ward, sil={sil:.3f}',
-             fontsize=11, y=1.01)
+# Figure title intentionally omitted; the IEEE caption provides it.
 out = os.path.join(OUT, 'fig15_hsdc_sc1_FAITHFUL.png')
 fig.savefig(out, dpi=300, bbox_inches='tight')
 plt.close(fig)

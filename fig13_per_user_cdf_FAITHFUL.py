@@ -5,7 +5,7 @@ fig13_per_user_cdf_FAITHFUL.py  —  Per-user CDF using channel_model.py itself
 Imports the MAIN simulation module and reuses its exact channel functions
 (chan_scalar, G_vector, H_ris_dev, opt_phi, composite, noma_pair) so the
 per-user rates are on the SAME scale and use the SAME physics as the
-paper's Table VIII / Fig 3 headline numbers (NOMA 187, RIS 187).
+paper's Table IV / Fig 3 headline numbers (NOMA 187, RIS 187).
 
 Device positions come from channel_model.generate_devices() (seed 42) —
 the real Scenario-1 layout, not a re-derivation.
@@ -99,9 +99,7 @@ ax[1].set_xlabel('Per-User Throughput (Mbps)'); ax[1].set_ylabel('CDF')
 ax[1].set_title('Far Users', fontweight='bold')
 ax[1].set_ylim(-0.02, 1.05); ax[1].legend(loc='lower right'); ax[1].grid(True, ls=':', alpha=0.5)
 
-fig.suptitle(f'Fig 13 \u2014 Per-User Rate CDF (channel_model.py physics) | '
-             f'UAV=({UAV[0]:.0f},{UAV[1]:.0f},{UAV[2]:.0f}) m, M={cm.CFG.M}, '
-             f'far RIS gain {ris_gain_far_dB:+.1f} dB, N_MC={N_MC}', fontsize=10.5, y=1.01)
+# Figure title intentionally omitted; the IEEE caption provides it.
 out = os.path.join(OUT, 'fig13_per_user_cdf_FAITHFUL.png')
 fig.savefig(out, dpi=300, bbox_inches='tight'); plt.close(fig)
 print(f"  saved -> {out}")

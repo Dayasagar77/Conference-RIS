@@ -70,9 +70,7 @@ ax.text(72, (o(far_nr,100)+o(far_r,100))/2, 'RIS\nbenefit', ha='right',
 
 ax.set_xlabel('Rate Threshold $R_{min}$ (bits/s, log scale)')
 ax.set_ylabel('Far-User Outage Probability  $P(R<R_{min})$')
-ax.set_title('Fig 16 \u2014 Far-user low-rate (telemetry) outage with vs. without RIS\n'
-             'RIS improves reliability but 35% remain in outage at the 100 bps SLA',
-             fontweight='bold', fontsize=11)
+# Figure title intentionally omitted; the IEEE caption provides it.
 ax.set_ylim(-0.04, 1.10); ax.set_xlim(10, 2000)
 ax.grid(True, which='both', ls=':', alpha=0.4)
 ax.legend(loc='center left', fontsize=10)
