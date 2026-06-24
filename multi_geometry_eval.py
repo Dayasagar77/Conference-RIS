@@ -371,11 +371,7 @@ def plot_results(seeds, thr_ris, thr_noma, thr42, noma42, mu, std):
     # ── Axes labels ───────────────────────────────────────────────────────
     ax.set_xlabel('Device Layout Seed', fontsize=12)
     ax.set_ylabel('Aggregate Throughput (Mbps)', fontsize=12)
-    ax.set_title(
-        f'DQL Policy Generalisation — UAV fixed at '
-        f'({UAV_POS[0]:.0f}, {UAV_POS[1]:.0f}, {UAV_POS[2]:.0f}) m  '
-        f'[M={M_RIS}, {NBITS}-bit RIS, N_MC={N_MC}]',
-        fontsize=12, fontweight='bold')
+    # figure title omitted; the IEEE caption provides it
 
     # ── Y-axis range ──────────────────────────────────────────────────────
     y_lo = max(0.0, min(OMA_BASELINE * 0.85, thr_ris.min() * 0.92))

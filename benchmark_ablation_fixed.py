@@ -1010,7 +1010,7 @@ def plot_arch_ablation(arch_res):
     ax.set_xticklabels(labels, rotation=20, ha='right', fontsize=9)
     ax.set_ylabel('Throughput after 500 episodes (Mbps)', fontsize=11)
     ax2.set_ylabel('Network parameters (#)', fontsize=11, color='r')
-    ax.set_title('DQL architecture ablation — throughput vs model complexity', fontsize=10)
+    # figure title omitted; the IEEE caption provides it
     ax.grid(axis='y', alpha=0.3)
     l2, lb2 = ax2.get_legend_handles_labels()
     ax.legend(l2, lb2, fontsize=9, loc='upper right')

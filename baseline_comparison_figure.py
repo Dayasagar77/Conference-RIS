@@ -66,9 +66,7 @@ ax.annotate("A2C (\u2248 A3C): stable,\n181.47 \u00b1 0.68  (\u22123.65%)", (2, 
 ax.set_xticks(range(len(ORDER))); ax.set_xticklabels(ORDER, fontsize=11)
 ax.set_xlim(-0.6, 3.4); ax.set_ylim(40, 205)
 ax.set_ylabel("Converged greedy throughput (Mbps)", fontsize=11)
-ax.set_title("Continuous-action RL baselines vs proposed DQN (per-seed, N$_{MC}$=60)\n"
-             "same channel model & sum-rate objective; 3 seeds each",
-             fontsize=12, fontweight="bold")
+# figure title omitted; the IEEE caption provides it
 ax.grid(True, ls=":", alpha=0.45, axis="y")
 leg = [Line2D([0], [0], marker="o", color="w", markerfacecolor="#555",
               markeredgecolor="black", markersize=10, label="per-seed result"),

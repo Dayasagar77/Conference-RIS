@@ -191,8 +191,7 @@ def run():
     ax[1].set_ylabel("Far-user mean rate (bps, log)")
     ax[1].set_title("(b) Survivor service per scheme", fontweight="bold")
     ax[1].grid(axis="y", ls=":", alpha=0.5)
-    fig.suptitle("Q8: NOMA vs the fairness-aware OMA frontier (no-RIS, multiple-access "
-                 "comparison)", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "fairness_oma_pareto.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

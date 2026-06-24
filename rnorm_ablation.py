@@ -431,9 +431,7 @@ def main():
     ax2.set_title("(b) Final policy quality & variance", fontweight="bold")
     ax2.grid(True, ls=":", alpha=0.5, axis="y")
 
-    plt.suptitle(f"R_norm Ablation — DQL Markov-property check "
-                 f"(seed-42 layout, {len(SEEDS)} seeds, reward={REWARD_MODE})",
-                 fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     fig_path = os.path.join(OUT, "rnorm_ablation.png")
     plt.savefig(fig_path, dpi=300, bbox_inches="tight"); plt.close()

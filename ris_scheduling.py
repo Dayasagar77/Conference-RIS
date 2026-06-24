@@ -173,9 +173,7 @@ def main():
     for i,(c9,c4) in enumerate(zip(cap_96,cap_400)):
         ax[1].text(i-w/2, c9, str(c9), ha="center", va="bottom", fontsize=8)
         ax[1].text(i+w/2, c4, str(c4), ha="center", va="bottom", fontsize=8)
-    fig.suptitle("Realizable multiuser RIS: full per-beacon gain via on-demand reconfiguration; "
-                 "sparse LPWAN telemetry makes large survivor populations feasible",
-                 fontsize=11.5, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     p = os.path.join(OUT, "ris_scheduling_grounded.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close(fig)

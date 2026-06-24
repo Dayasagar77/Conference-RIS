@@ -324,10 +324,7 @@ def plot_hsdc_clusters(positions, labels, centers, heads,
     ax.set_xlim(0, AREA_X); ax.set_ylim(0, AREA_Y)
     ax.set_xlabel("X Position (metres)", fontsize=12)
     ax.set_ylabel("Y Position (metres)", fontsize=12)
-    ax.set_title(
-        f"HSDC Clustering Result — K* = {K_star} clusters auto-determined\n"
-        f"Silhouette Score = {sil_score:.4f}  |  100 IoT Devices  |  3.5 GHz 6G Network",
-        fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     ax.legend(loc='upper left', fontsize=8,
               ncol=2, framealpha=0.85)
     ax.grid(True, alpha=0.2)
@@ -357,10 +354,7 @@ def plot_dendrogram(Z, K_star):
 
     ax.set_xlabel("Device Index / Merged Cluster", fontsize=11)
     ax.set_ylabel("Ward Linkage Distance",          fontsize=11)
-    ax.set_title(
-        f"HAC Dendrogram — Automatic K* = {K_star} determination\n"
-        f"Red dashed line shows optimal cut point (min-coverage criterion)",
-        fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     ax.legend(fontsize=11)
     plt.tight_layout()
     plt.savefig("results/hsdc/fig6_dendrogram.png", dpi=300)
@@ -416,8 +410,7 @@ def plot_comparison_bar(hsdc_metrics, baselines, K_star, sil_score):
                  bar.get_height() + 0.5,
                  f'{val:.1f}%', ha='center', va='bottom', fontsize=10)
 
-    plt.suptitle("HSDC Algorithm vs Baselines — Clustering Performance",
-                 fontsize=12, fontweight='bold')
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     plt.savefig("results/hsdc/fig7_comparison_bar.png", dpi=300)
     plt.close()
@@ -460,8 +453,7 @@ def plot_elbow_curve(positions):
     ax2.legend(fontsize=10)
     ax2.grid(True, alpha=0.3)
 
-    plt.suptitle("Optimal K Determination — Elbow + Silhouette Analysis",
-                 fontsize=12, fontweight='bold')
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     plt.savefig("results/hsdc/fig8_inertia_elbow.png", dpi=300)
     plt.close()

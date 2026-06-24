@@ -1,0 +1,23 @@
+# ============================================================================
+# Survivor-Aware UAV Positioning for RIS-Assisted 6G Emergency Communications
+# Reproducibility environment  (Python 3.10+)
+# ----------------------------------------------------------------------------
+#   Core figures, channel model, HSDC clustering, and the proposed DQL agent
+#   require ONLY numpy + matplotlib (the Q-network is pure NumPy by design).
+#   scipy / scikit-learn are used by the clustering and statistics utilities.
+#   The continuous-action RL baselines (PPO / A2C / DDPG in Table II) are the
+#   only components that need gymnasium + stable-baselines3 + torch.
+#
+#   Install everything:   pip install -r requirements.txt
+# ============================================================================
+
+# --- core (channel model, HSDC, proposed DQL agent, all paper figures) ---
+numpy>=1.24
+matplotlib>=3.7
+scipy>=1.10
+scikit-learn>=1.3
+
+# --- optional: continuous-action RL baselines (continuous_rl_baseline.py) ---
+gymnasium>=0.29
+stable-baselines3>=2.0.0
+torch>=2.0

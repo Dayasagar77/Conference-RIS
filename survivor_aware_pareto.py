@@ -215,8 +215,7 @@ def main():
                label=f"OMA baseline = {OMA_REF} Mbps")
     ax.set_xlabel("Aggregate system throughput (Mbps)")
     ax.set_ylabel("Far-user telemetry reliability @ 100 bps (%)")
-    ax.set_title("Survivor-Aware UAV Positioning:\nThroughput–Reliability Pareto Frontier "
-                 "(channel_model.py physics)", fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     ax.grid(True, ls=":", alpha=0.5)
     ax.legend(loc="center left", fontsize=9)
     plt.tight_layout()

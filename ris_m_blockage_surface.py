@@ -132,9 +132,7 @@ def run():
                     a.text(jj, ii, f"{Z[ii,jj]:.0f}", ha="center", va="center",
                            fontsize=8, color="white" if Z[ii, jj] < 55 else "black")
         plt.colorbar(im, ax=a, label="far-user SLA reliability (%)")
-    fig.suptitle("Q2: far-user telemetry reliability over {RIS size x blockage}\n"
-                 "the survivor-aware position sustains reliability where the "
-                 "sum-rate position cannot", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "ris_m_blockage_surface.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

@@ -159,8 +159,7 @@ def run():
     ax[1].set_title("(b) Survivor reliability vs phase error\n(deployed survivor-aware position)",
                     fontweight="bold")
     ax[1].grid(True, ls=":", alpha=0.5); ax[1].legend(fontsize=9)
-    fig.suptitle("Q5: graceful degradation of the RIS gain under imperfect CSI "
-                 "(3-bit RIS + additive phase error)", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "phase_error_sweep.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

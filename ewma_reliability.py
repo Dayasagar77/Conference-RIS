@@ -156,8 +156,7 @@ def run():
         a.set_ylim(0, 105)
         a.set_title(f"{name.split(' ')[0]} position", fontweight="bold")
         a.grid(True, ls=":", alpha=0.5); a.legend(fontsize=8, loc="lower right")
-    fig.suptitle("Q3: O(1)-per-beacon EWMA tracks the Monte-Carlo far-SLA reliability "
-                 "online (no deployment-time MC)", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "ewma_reliability.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

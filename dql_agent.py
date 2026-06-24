@@ -504,8 +504,7 @@ def plot_convergence(ep_rewards, ep_thrs, best_thrs, conv_ep, loss_hist):
         ax.set_title('(d) Q-Network Training Loss')
         ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
 
-    plt.suptitle('DQL Agent Convergence - RIS-UAV 6G System',
-                 fontsize=13, y=1.01)
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     path = f"{OUT}/fig10_convergence.png"
     plt.savefig(path, dpi=150, bbox_inches='tight'); plt.close()
@@ -545,7 +544,7 @@ def plot_trajectory(best_pos, dql_thr):
     ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
     ax.set_ylim(140, 210)
 
-    plt.suptitle('UAV Position and Altitude Analysis', fontsize=13)
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     path = f"{OUT}/fig11_trajectory.png"
     plt.savefig(path, dpi=150, bbox_inches='tight'); plt.close()
@@ -571,7 +570,7 @@ def plot_throughput_compare(alts, fixed_thrs, best_fixed, best_H, dql_thr, dql_g
     ax.set_xticklabels([f'H={H}m' for H in alts])
     ax.set_xlabel('UAV Altitude')
     ax.set_ylabel('System Throughput (Mbps)')
-    ax.set_title('DQL vs Fixed Altitude — Fair Comparison (seed=99, n_mc=50)')
+    # figure title omitted; the IEEE caption provides it
     ax.legend(fontsize=10); ax.grid(axis='y', alpha=0.4)
     ax.set_ylim(140, max(max(fixed_thrs), dql_thr)*1.12)
     plt.tight_layout()

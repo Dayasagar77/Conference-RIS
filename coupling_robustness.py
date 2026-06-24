@@ -178,10 +178,7 @@ def run():
                        rotation=0, ha="center", fontsize=8)
     ax.set_ylabel("|Spearman ρ| with far-user rate")
     ax.set_ylim(0, 1)
-    ax.set_title("Coupling law is CONDITIONAL: UAV→RIS separation dominates when the "
-                 "RIS serves\nthe survivor region (3/5 cases); it weakens when the RIS "
-                 "is remote from or co-sited with survivors",
-                 fontweight="bold", fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     ax.legend(loc="upper right"); ax.grid(axis="y", ls=":", alpha=0.5)
     for i, r in enumerate(results):
         ax.text(i-0.2, abs(r["spearman_dris"])+0.02, f"{abs(r['spearman_dris']):.2f}",

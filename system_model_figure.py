@@ -140,8 +140,7 @@ ax.legend(handles=handles, loc="lower right", fontsize=8.5, framealpha=0.95,
           ncol=1, bbox_to_anchor=(0.995, 0.02))
 
 ax.set_xlabel("x (m)"); ax.set_ylabel("y (m)")
-ax.set_title("System model: RIS-assisted UAV-NOMA emergency downlink for blocked survivors",
-             fontsize=12, fontweight="bold", pad=12)
+# figure title omitted; the IEEE caption provides it
 ax.grid(True, ls=":", alpha=0.3)
 plt.tight_layout()
 p = os.path.join(OUT, "system_model.png")

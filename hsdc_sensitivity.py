@@ -158,8 +158,7 @@ def run():
                   fontweight="bold")
     ax2.grid(True, ls=":", alpha=0.5)
     ax2.legend(handles=[l1, l2], fontsize=9, loc="best")
-    fig.suptitle("Q7: HSDC auto-K is a smooth, monotone function of the UAV service "
-                 "radius (set by power budget & environment)", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "hsdc_sensitivity.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

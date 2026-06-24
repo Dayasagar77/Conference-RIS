@@ -146,8 +146,7 @@ def fig13(near, far):
     ax.set_title('Far Users  (450–800 m ring)',fontweight='bold')
     ax.set_ylim(-0.02,1.08); ax.legend(); ax.grid(True,ls=':',alpha=0.5)
 
-    fig.suptitle(f'Fig 13 — Per-User Rate CDF: NOMA ±RIS | UAV=({UAV_POS[0]:.0f},{UAV_POS[1]:.0f},{UAV_POS[2]:.0f}) m, '
-                 f'M={M_RIS}, {NBITS}-bit, N_MC={N_MC}, seed_d={DEVICE_SEED}',fontsize=10.5,y=1.01)
+    # figure title omitted; the IEEE caption provides it
     out=os.path.join(OUT_DIR,'fig13_per_user_cdf.png')
     fig.savefig(out,dpi=DPI,bbox_inches='tight'); plt.close(fig)
     print(f"saved → {out}")
@@ -184,8 +183,7 @@ def fig14():
     xtl=[str(s) for s in TEST_SEEDS]+['42\n(train)']
     ax.set_xticks(np.arange(len(TEST_SEEDS)+1)); ax.set_xticklabels(xtl,fontsize=8.5)
     ax.set_xlabel('Device Layout Seed'); ax.set_ylabel('Aggregate Throughput (Mbps)')
-    ax.set_title(f'Fig 14 — DQL Policy Generalisation | UAV=({UAV_POS[0]:.0f},{UAV_POS[1]:.0f},{UAV_POS[2]:.0f}) m fixed',
-                 fontweight='bold')
+    # figure title omitted; the IEEE caption provides it
     ax.text(0.01,0.97,f'20-seed stats\nmean={mu:.2f} Mbps\nstd={std:.2f} Mbps\n'
             f'min={thr_arr.min():.2f}\nmax={thr_arr.max():.2f}',
             transform=ax.transAxes,fontsize=9,va='top',
@@ -272,8 +270,7 @@ def fig15(near, far):
              transform=ax2.transAxes,fontsize=9,va='top',ha='right',
              bbox=dict(boxstyle='round,pad=0.4',facecolor='#fffde7',edgecolor='#aaa',alpha=0.9))
 
-    fig.suptitle(f'Fig 15 — HSDC on 24 SC1 NOMA Devices (seed={DEVICE_SEED}) | '
-                 f'K*={k_star}, R_cover={R_COVER:.0f} m, linkage=ward, sil={sil:.3f}',fontsize=11,y=1.01)
+    # figure title omitted; the IEEE caption provides it
     out=os.path.join(OUT_DIR,'fig15_hsdc_sc1.png')
     fig.savefig(out,dpi=DPI,bbox_inches='tight'); plt.close(fig)
     print(f"saved → {out}")
@@ -333,9 +330,7 @@ def fig16(R_near, R_far_nr, R_far_r):
     ax2.set_ylabel('Outage Probability'); ax2.set_title('Outage at Key Thresholds',fontweight='bold')
     ax2.set_ylim(0,1.18); ax2.legend(fontsize=9.5); ax2.grid(axis='y',ls=':',alpha=0.45)
 
-    fig.suptitle(f'Fig 16 — Far-User Outage: RIS vs No-RIS | '
-                 f'UAV=({UAV_POS[0]:.0f},{UAV_POS[1]:.0f},{UAV_POS[2]:.0f}) m, '
-                 f'M={M_RIS}, 60 dB blockage, N_MC={N_MC}',fontsize=10.5,y=1.01)
+    # figure title omitted; the IEEE caption provides it
     out=os.path.join(OUT_DIR,'fig16_outage_analysis.png')
     fig.savefig(out,dpi=DPI,bbox_inches='tight'); plt.close(fig)
     print(f"saved → {out}")

@@ -427,12 +427,7 @@ def plot_outage(R_near, R_far_nr, R_far_r, Pout, delta, out_dir):
     ax2.grid(axis='y', linestyle=':', alpha=0.45)
 
     # ── Suptitle ──────────────────────────────────────────────────────────
-    fig.suptitle(
-        f'Far-User Outage: RIS vs No-RIS  '
-        f'[UAV=({UAV_POS[0]:.0f},{UAV_POS[1]:.0f},{UAV_POS[2]:.0f}) m, '
-        f'M={M_RIS}, {NBITS}-bit, 60 dB blockage, '
-        f'seed_d={DEVICE_SEED}, seed_e={EVAL_SEED}, N_MC={N_MC}]',
-        fontsize=10.5, y=1.01)
+    # figure title omitted; the IEEE caption provides it
 
     fig_path = os.path.join(out_dir, 'fig_outage_analysis.png')
     fig.savefig(fig_path, dpi=300, bbox_inches='tight')

@@ -146,8 +146,7 @@ def run():
         ax[1].text(bb.get_x()+bb.get_width()/2, v, f"{v:.3f}", ha="center",
                    va="bottom", fontsize=9)
     ax[1].grid(axis="y", ls=":", alpha=0.5)
-    fig.suptitle("Q6: exhaustive finer-grid search vs the DQL optimum — the "
-                 "discrete-action policy is near-optimal", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     p = os.path.join(OUT, "finer_grid_search.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

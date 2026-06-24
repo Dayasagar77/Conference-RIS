@@ -311,10 +311,7 @@ def verify_ris_gain(positions):
     a2.set_xlabel('RIS Power Gain (dB)'); a2.set_ylabel('Density')
     a2.legend(); a2.grid(True, alpha=0.3)
 
-    plt.suptitle(
-        f'RIS Beamforming Gain — 3.5 GHz, M={CFG.M} elements\n'
-        f'Near: clear LoS  |  Far: {CFG.BLOCK_DB:.0f}dB blockage, RIS bypass',
-        fontsize=12, fontweight='bold')
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     plt.savefig("results/channel_plots/fig9_ris_gain_verification.png", dpi=300)
     plt.close()
@@ -398,7 +395,7 @@ def plot_los():
     fig,ax=plt.subplots(figsize=(7,4))
     ax.plot(ang,p,'#1F497D',lw=2.5)
     ax.set_xlabel("Elevation Angle (°)"); ax.set_ylabel("P_LoS")
-    ax.set_title("LoS Probability vs Elevation Angle (Urban, ITU-R P.1410)")
+    # figure title omitted; the IEEE caption provides it
     ax.set_ylim(0,1); ax.grid(True,alpha=0.3)
     plt.tight_layout()
     plt.savefig("results/channel_plots/fig1_los_probability.png",dpi=300)
@@ -411,7 +408,7 @@ def plot_pl():
     fig,ax=plt.subplots(figsize=(7,4))
     ax.plot(alts,pl,'#C0392B',lw=2.5,marker='o',ms=8)
     ax.set_xlabel("UAV Altitude (m)"); ax.set_ylabel("Path Loss (dB)")
-    ax.set_title("Path Loss vs UAV Altitude (3.5 GHz, device directly below)")
+    # figure title omitted; the IEEE caption provides it
     ax.grid(True,alpha=0.3)
     plt.tight_layout()
     plt.savefig("results/channel_plots/fig2_path_loss_altitude.png",dpi=300)
@@ -421,7 +418,7 @@ def plot_pl():
 def plot_throughput(alts, thr_oma, thr_noma, thr_ris):
     fig,ax=plt.subplots(figsize=(9,5))
     ax.plot(alts,thr_oma, 'b-o',lw=2,  ms=8,  label='OMA (Baseline)')
-    ax.plot(alts,thr_noma,'g-s',lw=2,  ms=8,  label='DSF-NOMA (no RIS)')
+    ax.plot(alts,thr_noma,'g-s',lw=2,  ms=8,  label='NOMA (no RIS)')
     ax.plot(alts,thr_ris, 'r-^',lw=2.5,ms=10, label='Proposed RIS-DQL')
     ax.fill_between(alts,thr_noma,thr_ris,
                     alpha=0.15,color='red',  label='RIS gain')
@@ -429,11 +426,7 @@ def plot_throughput(alts, thr_oma, thr_noma, thr_ris):
                     alpha=0.10,color='green',label='NOMA gain')
     ax.set_xlabel("UAV Altitude H (m)",         fontsize=12)
     ax.set_ylabel("Aggregate Throughput (Mbps)",fontsize=12)
-    ax.set_title(
-        f"Altitude vs Throughput — Scenario 1\n"
-        f"12 NOMA pairs | 3.5 GHz | M={CFG.M} RIS | "
-        f"α={CFG.ALPHA} | Far devices: +{CFG.BLOCK_DB:.0f}dB blockage",
-        fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     ax.legend(fontsize=10); ax.grid(True,alpha=0.3)
     ax.set_ylim(bottom=0)
     plt.tight_layout()
@@ -472,9 +465,7 @@ def plot_map(positions, labels):
                                 fill=False,ls=ls,lw=1.2,alpha=0.4))
     ax.set_xlim(0,CFG.AREA_X); ax.set_ylim(0,CFG.AREA_Y)
     ax.set_xlabel("X (m)"); ax.set_ylabel("Y (m)")
-    ax.set_title(
-        f"SC1: {CFG.N_PAIRS} NOMA Pairs | RIS M={CFG.M} assists blocked far users\n"
-        f"Gray lines = near-far pair connections",fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     ax.legend(fontsize=9,ncol=2); ax.grid(True,alpha=0.2)
     plt.tight_layout()
     plt.savefig("results/channel_plots/fig4_device_placement.png",dpi=300)

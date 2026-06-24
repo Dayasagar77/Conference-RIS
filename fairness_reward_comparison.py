@@ -208,9 +208,7 @@ def run():
     ax2.set_title("(b) At each objective's optimum:\nfar-SLA vs aggregate", fontweight="bold")
     for b in b1: ax2.text(b.get_x()+b.get_width()/2, b.get_height()+2,
                           f"{b.get_height():.0f}", ha="center", fontsize=8)
-    fig.suptitle("Q4: the survivor-aware SLA reward holds near-peak throughput at 100% "
-                 "far-SLA;\nrate-fairness (prop-fair / max-min) over-serves survivors and "
-                 "collapses aggregate", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "fairness_reward_comparison.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

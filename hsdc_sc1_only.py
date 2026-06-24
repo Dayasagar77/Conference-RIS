@@ -464,11 +464,7 @@ def plot_clusters(k_star, assign, centroids, positions, true_labels,
                        edgecolor='#aaa', alpha=0.9))
 
     # ── Suptitle ──────────────────────────────────────────────────────────
-    fig.suptitle(
-        f'HSDC Clustering — 24 SC1 NOMA Devices (seed={DEVICE_SEED})  '
-        f'[K*={k_star}, R_cover={R_COVER:.0f} m, '
-        f'linkage={LINKAGE}, sil={sil:.3f}]',
-        fontsize=11, y=1.01)
+    # figure title omitted; the IEEE caption provides it
 
     fig_path = os.path.join(out_dir, 'fig_hsdc_sc1.png')
     plt.savefig(fig_path, dpi=300, bbox_inches='tight')

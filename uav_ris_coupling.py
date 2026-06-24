@@ -177,9 +177,7 @@ def test_A_and_B():
 
     sep = np.linalg.norm(np.array([GX[i_near[1]], GY[i_near[0]]]) -
                          np.array([GX[i_rel[1]], GY[i_rel[0]]]))
-    fig.suptitle(f"UAV–RIS Coupling: near-user and far-user optima are "
-                 f"{sep:.0f} m apart (spatially distinct)",
-                 fontsize=13, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     p = os.path.join(OUT, "coupling_surfaces.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close(fig)
@@ -207,8 +205,7 @@ def test_A_and_B():
                      f"Spearman ρ = {sr_far:+.3f}  (weak/scattered)",
                      fontweight="bold")
     ax2[1].grid(True, ls=":", alpha=0.5)
-    fig2.suptitle("Governing-variable test: the far-user rate tracks UAV→RIS "
-                  "distance, not UAV→far distance", fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     p2 = os.path.join(OUT, "coupling_governing_var.png")
     fig2.savefig(p2, dpi=300, bbox_inches="tight"); plt.close(fig2)
@@ -256,8 +253,7 @@ def test_C_M_interaction():
     ax.axhline(SLA_BPS, color="black", ls=":", lw=1.2, label=f"{SLA_BPS:.0f} bps SLA")
     ax.set_xlabel("UAV → RIS distance (m)  [UAV swept from near-centroid → RIS]")
     ax.set_ylabel("Far-user mean rate (bps, log)")
-    ax.set_title("RIS size × UAV–RIS proximity:\nsmaller arrays make UAV proximity "
-                 "to the RIS more critical", fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     ax.grid(True, ls=":", alpha=0.5); ax.legend()
     plt.tight_layout()
     p = os.path.join(OUT, "coupling_M_interaction.png")

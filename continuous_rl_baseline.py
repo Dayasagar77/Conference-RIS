@@ -246,9 +246,7 @@ def run():
     ax[1].set_title("(b) Converged throughput (mean +/- std)", fontweight="bold")
     for i, m in enumerate(means):
         ax[1].text(i, m + 1, f"{m:.1f}", ha="center", fontsize=9)
-    fig.suptitle("Continuous-action RL baselines vs proposed DQN "
-                 "(same channel_model environment & sum-rate objective)",
-                 fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     p = os.path.join(OUT, "continuous_rl_baseline.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

@@ -209,9 +209,7 @@ def finalize():
     ax2.set_title("(b) Positioning-tension separation distribution", fontweight="bold")
     ax2.legend(fontsize=9); ax2.grid(True, axis="y", ls=":", alpha=0.5)
 
-    plt.suptitle(f"UAV–RIS coupling robustness across {n} independent device "
-                 f"topologies (26×26 grid, N_MC={data[0]['n_mc']})",
-                 fontsize=12, fontweight="bold")
+    # figure title omitted; the IEEE caption provides it
     plt.tight_layout()
     p = os.path.join(OUT, "coupling_topology_robustness.png")
     fig.savefig(p, dpi=300, bbox_inches="tight"); plt.close()

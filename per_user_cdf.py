@@ -493,13 +493,7 @@ def plot_cdfs(near_no, near_ris, far_no, far_ris, ris_gain_db, out_dir):
                 ha='center', va='bottom', fontsize=9, color='#2ca02c')
 
     # ── Super title ───────────────────────────────────────────────────────
-    fig.suptitle(
-        f'Per-User Rate CDF: NOMA ±RIS  '
-        f'(UAV @ ({UAV_POS[0]:.0f},{UAV_POS[1]:.0f},{UAV_POS[2]:.0f}) m, '
-        f'M={M_RIS}, {NBITS}-bit,  '
-        f'N_MC={N_MC},  seed_d={DEVICE_SEED},  seed_e={EVAL_SEED})',
-        fontsize=10.5, y=1.01
-    )
+    # figure title omitted; the IEEE caption provides it
 
     fig_path = os.path.join(out_dir, 'fig_per_user_cdf.png')
     fig.savefig(fig_path, dpi=300, bbox_inches='tight')

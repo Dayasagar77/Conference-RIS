@@ -84,7 +84,7 @@ cb, cr = '#1f77b4', '#d62728'
 x1, y1 = ecdf(R_near)
 ax[0].step(x1, y1, color=cr, lw=2, where='post', label='Without RIS')
 ax[0].step(x1, y1, color=cb, lw=2, where='post', ls='--', label='With RIS (identical)')
-ax[0].set_xlabel('Per-User Throughput (Mbps)'); ax[0].set_ylabel('CDF')
+ax[0].set_xlabel('Per-User Throughput (Mbps)'); ax[0].set_ylabel('Empirical CDF')
 ax[0].set_title('Near Users', fontweight='bold')
 ax[0].set_ylim(-0.02, 1.05); ax[0].legend(loc='lower right'); ax[0].grid(True, ls=':', alpha=0.5)
 ax[0].text(0.04, 0.92, 'RIS optimised for far users\n\u2192 0 dB near gain by design',
@@ -95,7 +95,7 @@ x3, y3 = ecdf(R_far_nr); x4, y4 = ecdf(R_far_r)
 ax[1].step(x3, y3, color=cr, lw=2, where='post', label='Without RIS (60 dB block)')
 ax[1].step(x4, y4, color=cb, lw=2, where='post', ls='--',
            label=f'With RIS (M={cm.CFG.M}, {cm.CFG.B_PHASE}-bit)')
-ax[1].set_xlabel('Per-User Throughput (Mbps)'); ax[1].set_ylabel('CDF')
+ax[1].set_xlabel('Per-User Throughput (Mbps)'); ax[1].set_ylabel('Empirical CDF')
 ax[1].set_title('Far Users', fontweight='bold')
 ax[1].set_ylim(-0.02, 1.05); ax[1].legend(loc='lower right'); ax[1].grid(True, ls=':', alpha=0.5)
 

@@ -204,9 +204,7 @@ def finalize():
                         for s in summary["placements"]], fontsize=8)
     ax.set_ylabel("|Spearman ρ| with far-user rate")
     ax.set_ylim(0, 1)
-    ax.set_title(f"ρ(d_RIS) is the dominant far-rate correlate at all placements; "
-                 f"per-placement\nclassification of borderline cases is topology-dependent "
-                 f"(mean ± std, {n} topologies)", fontweight="bold", fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     ax.legend(loc="upper right"); ax.grid(axis="y", ls=":", alpha=0.5)
     for i in range(len(names)):
         ax.text(i-0.2, dris_m[i]+dris_s[i]+0.02, f"{dris_m[i]:.2f}", ha="center", fontsize=8)

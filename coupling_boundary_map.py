@@ -240,10 +240,7 @@ def finalize():
     ax.set_yticks(range(nb)); ax.set_yticklabels([f"{b:.0f}" for b in BLOCK_DB_VALUES])
     ax.set_xlabel("Rician K-factor (dB)")
     ax.set_ylabel("Blockage depth (dB)")
-    ax.set_title("Q1 boundary: coupling-law dominance margin "
-                 r"$|\rho(d_{RIS})|-|\rho(d_{far})|$" "\n"
-                 "green (>0): 'fly toward RIS' holds;  red (<0): rule inverts",
-                 fontweight="bold", fontsize=11)
+    # figure title omitted; the IEEE caption provides it
     for ib in range(nb):
         for ik in range(nk):
             if not np.isnan(MARG[ib, ik]):
