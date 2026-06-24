@@ -26,3 +26,6 @@ Thumbs.db
 *.pkl
 *.pt
 *.ckpt
+
+# Generated figures (reproducible via regenerate_all_figures.py)
+results/**/*.png
